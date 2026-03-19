@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#565b6f",
+                        "primary-fixed": "#3e76fe",
+                        "error-dim": "#67040d",
+                        "inverse-on-surface": "#9d9ca2",
+                        "on-tertiary-container": "#564067",
+                        "secondary-dim": "#4d5266",
+                        "primary-fixed-dim": "#2d68f0",
+                        "on-secondary": "#faf8ff",
+                        "on-background": "#30323b",
+                        "outline-variant": "#b0b1bc",
+                        "tertiary-fixed-dim": "#d8bceb",
+                        "tertiary-container": "#e6cafa",
+                        "secondary-fixed": "#dde1f9",
+                        "on-primary-fixed-variant": "#f9f7ff",
+                        "on-secondary-container": "#4c5164",
+                        "background": "#faf8fe",
+                        "on-secondary-fixed": "#393f51",
+                        "on-primary": "#faf8ff",
+                        "secondary-container": "#dde1f9",
+                        "inverse-surface": "#0d0e12",
+                        "error": "#a83836",
+                        "surface-dim": "#d9d9e4",
+                        "surface-container-low": "#f4f3fa",
+                        "outline": "#797a84",
+                        "on-surface-variant": "#5d5f68",
+                        "secondary-fixed-dim": "#cfd3eb",
+                        "tertiary": "#6d567f",
+                        "tertiary-fixed": "#e6cafa",
+                        "surface-container": "#eeedf6",
+                        "secondary": "#595e72",
+                        "on-error": "#fff7f6",
+                        "error-container": "#fa746f",
+                        "on-surface": "#30323b",
+                        "surface-bright": "#faf8fe",
+                        "surface": "#faf8fe",
+                        "on-tertiary": "#fff6fe",
+                        "on-tertiary-fixed-variant": "#604a71",
+                        "on-primary-fixed": "#ffffff",
+                        "primary-container": "#3e76fe",
+                        "on-tertiary-fixed": "#422d53",
+                        "on-primary-container": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-dim": "#0049c2",
+                        "primary": "#0053dc",
+                        "tertiary-dim": "#604a72",
+                        "surface-container-high": "#e8e7f1",
+                        "surface-variant": "#e1e2ed",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-tint": "#0053dc",
+                        "on-error-container": "#6e0a12",
+                        "inverse-primary": "#618bff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-shadow {
+            box-shadow: 0 4px 40px rgba(0, 83, 220, 0.06);
+        }
+        @media print {
+            .no-print { display: none; }
+            .print-area { margin: 0; padding: 0; shadow: none; }
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_4px_40px_rgba(0,83,220,0.06)] no-print">
+<div class="flex justify-between items-center h-16 px-8 max-w-full mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tight text-[#2563EB] font-headline">DoctorHub</span>
+<div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
+<a class="text-on-surface-variant font-medium hover:text-[#2563EB] transition-colors duration-200" href="#">Moje aktywności</a>
+<a class="text-[#2563EB] font-bold border-b-2 border-[#2563EB] pb-1" href="#">Raporty</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-manrope text-sm font-medium tracking-tight text-on-surface">dr n. med. Jan Kowalski</span>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Avatar of Dr. Jan Kowalski" class="w-full h-full object-cover" data-alt="Avatar of Dr. Jan Kowalski" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT3HJjPlgZ7k9t5YHOlW652_Z0TgfVEZaZzqK0f7ljaGluNdEnEEYG2tfgfXSrpHCu-JEGllQhbWVH4PYnJXheuIu_txcLRimmt8yL4IuS-TU_hqsX9Zm8ZQaf5tCzytzdfusVlrhx4IgIHrlNggHkM8NLnWeVLv7wnvgmLUJy7Le510OOrWvxBc0v0WysMVqJGyrYftTv1u2AK69Xa6u_BcunLa9q93E14LRLF6FPAjFCFZhllI_l-otr4_ovQfcTCNx04dgQyDM"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="pt-24 pb-12 px-8 min-h-screen flex flex-col md:flex-row gap-8 max-w-7xl mx-auto">
+<!-- Sidebar Actions (Left) -->
+<aside class="w-full md:w-64 space-y-6 no-print">
+<div class="space-y-2">
+<button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+                    Powrót do listy
+                </button>
+</div>
+<div class="p-1 bg-surface-container-low rounded-2xl space-y-1"><button class="w-full flex items-center justify-center gap-3 px-4 py-4 text-sm font-bold bg-[#2563EB] text-white rounded-xl shadow-lg hover:bg-blue-700 transition-all active:scale-95 mb-2">
+<span class="material-symbols-outlined text-xl">send</span>
+    Złóż raport
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl hover:opacity-90 transition-all active:scale-95 text-on-surface hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-xl">download</span>
+                    Pobierz PDF
+                </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-on-surface hover:bg-surface-container-high rounded-xl transition-all">
+<span class="material-symbols-outlined text-xl">print</span>
+                    Drukuj raport
+                </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-on-surface hover:bg-surface-container-high rounded-xl transition-all">
+<span class="material-symbols-outlined text-xl">share</span>
+                    Udostępnij
+                </button>
+</div>
+<div class="p-6 bg-tertiary-container/30 rounded-2xl border-none">
+<h4 class="font-headline font-bold text-on-tertiary-container text-sm mb-2">Status Raportu</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium text-on-tertiary-container uppercase tracking-wider">Zweryfikowany</span>
+</div>
+<p class="text-xs text-on-tertiary-fixed-variant leading-relaxed">Ten raport został automatycznie wygenerowany na podstawie Twoich aktywności medycznych w systemie DoctorHub.</p>
+</div>
+</aside>
+<!-- Document Canvas (Center) -->
+<section class="flex-1 flex justify-center overflow-auto print-area pb-12">
+<!-- A4 Styled Container -->
+<div class="w-full max-w-[210mm] min-h-[297mm] bg-surface-container-lowest paper-shadow p-[20mm] md:p-[25mm] relative overflow-hidden rounded-sm transition-all duration-300">
+<!-- PDF Top Accent -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container"></div>
+<!-- Document Header -->
+<header class="flex justify-between items-start border-b border-outline-variant/15 pb-8 mb-10">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary font-headline">DoctorHub</span>
+</div>
+<h1 class="font-headline text-2xl font-extrabold text-on-surface tracking-tight leading-none">RAPORT AKTYWNOŚCI MEDYCZNEJ</h1>
+<p class="text-on-surface-variant text-sm mt-2 font-medium">Dokument wygenerowany systemowo</p>
+</div>
+<div class="text-right">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg inline-block">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.1em] mb-1">Identyfikator Raportu</p>
+<p class="font-mono text-sm font-semibold text-on-surface">DH-2023-10-JK</p>
+</div>
+</div>
+</header>
+<!-- Professional Data -->
+<div class="grid grid-cols-2 gap-12 mb-12">
+<div class="space-y-4">
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.1em] mb-1">Specjalista</p>
+<p class="font-headline text-lg font-bold text-on-surface">dr n. med. Jan Kowalski</p>
+<p class="text-sm text-on-surface-variant">Kardiologia Inwazyjna</p>
+</div>
+</div>
+<div class="space-y-4 text-right">
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.1em] mb-1">Okres Rozliczeniowy</p>
+<p class="font-headline text-lg font-bold text-on-surface">01.10.2023 - 31.10.2023</p>
+<p class="text-sm text-on-surface-variant">Październik 2023</p>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="mb-12">
+<div class="bg-surface-container-low rounded-t-xl grid grid-cols-12 px-6 py-4">
+<div class="col-span-2 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Data</div>
+<div class="col-span-2 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Kod ICD-9</div>
+<div class="col-span-6 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Procedura</div>
+<div class="col-span-2 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider text-right">Ilość</div>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<div class="grid grid-cols-12 px-6 py-5 hover:bg-surface-container-low/30 transition-colors">
+<div class="col-span-2 text-sm text-on-surface-variant font-medium">02.10.2023</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">89.522</div>
+<div class="col-span-6 text-sm text-on-surface">Elektrokardiogram z 12 lub więcej odprowadzeniami (EKG)</div>
+<div class="col-span-2 text-sm font-bold text-on-surface text-right">14</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 px-6 py-5 hover:bg-surface-container-low/30 transition-colors">
+<div class="col-span-2 text-sm text-on-surface-variant font-medium">05.10.2023</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">88.721</div>
+<div class="col-span-6 text-sm text-on-surface">Echokardiografia serca - badanie przezklatkowe (Echo)</div>
+<div class="col-span-2 text-sm font-bold text-on-surface text-right">8</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 px-6 py-5 hover:bg-surface-container-low/30 transition-colors">
+<div class="col-span-2 text-sm text-on-surface-variant font-medium">12.10.2023</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">89.541</div>
+<div class="col-span-6 text-sm text-on-surface">Monitorowanie Holtera - rytmu serca (24h-48h)</div>
+<div class="col-span-2 text-sm font-bold text-on-surface text-right">5</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-12 px-6 py-5 hover:bg-surface-container-low/30 transition-colors">
+<div class="col-span-2 text-sm text-on-surface-variant font-medium">20.10.2023</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">89.522</div>
+<div class="col-span-6 text-sm text-on-surface">Elektrokardiogram z 12 lub więcej odprowadzeniami (EKG)</div>
+<div class="col-span-2 text-sm font-bold text-on-surface text-right">12</div>
+</div>
+</div>
+</div>
+<!-- Summary Grid -->
+<div class="grid grid-cols-3 gap-6 mb-16">
+<div class="p-6 bg-surface-container rounded-2xl">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Suma procedur</p>
+<p class="text-3xl font-headline font-bold text-primary">39</p>
+</div>
+<div class="p-6 bg-surface-container rounded-2xl">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Unikalne kody</p>
+<p class="text-3xl font-headline font-bold text-on-surface">3</p>
+</div>
+<div class="p-6 bg-primary-container rounded-2xl">
+<p class="text-[10px] font-bold text-on-primary-fixed uppercase tracking-wider mb-2">Czas pracy (est.)</p>
+<p class="text-3xl font-headline font-bold text-on-primary-fixed">164h</p>
+</div>
+</div>
+<!-- Footer / Signatures -->
+<footer class="mt-auto pt-12 border-t border-outline-variant/15 flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Wygenerowano przez</p>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-primary rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xs">verified</span>
+</div>
+<span class="text-xs font-bold text-on-surface">System DoctorHub v2.4</span>
+</div>
+<p class="text-[10px] text-on-surface-variant">Data: 02.11.2023, 14:35:12</p>
+</div>
+<div class="w-48 text-center">
+<div class="h-16 flex items-center justify-center mb-2 italic text-on-surface-variant/30 font-serif text-2xl">
+<!-- Placeholder for digital signature -->
+                            J. Kowalski
+                        </div>
+<div class="border-t border-on-surface w-full pt-2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Podpis Specjalisty</p>
+</div>
+</div>
+</footer>
+<!-- Watermark -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] rotate-[-45deg] select-none">
+<p class="text-[8rem] font-black font-headline tracking-tighter">DOCTORHUB</p>
+</div>
+</div>
+</section>
+</main>
+</body></html>

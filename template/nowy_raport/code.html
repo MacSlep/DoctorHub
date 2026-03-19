@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DoctorHub - Nowy raport</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#faf8fe",
+                        "inverse-surface": "#0d0e12",
+                        "secondary-fixed": "#dde1f9",
+                        "inverse-primary": "#618bff",
+                        "outline-variant": "#b0b1bc",
+                        "error": "#a83836",
+                        "error-dim": "#67040d",
+                        "error-container": "#fa746f",
+                        "surface-dim": "#d9d9e4",
+                        "tertiary-dim": "#604a72",
+                        "tertiary-fixed": "#e6cafa",
+                        "on-background": "#30323b",
+                        "primary": "#0053dc",
+                        "surface-variant": "#e1e2ed",
+                        "inverse-on-surface": "#9d9ca2",
+                        "surface-container": "#eeedf6",
+                        "primary-container": "#3e76fe",
+                        "surface-bright": "#faf8fe",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#cfd3eb",
+                        "on-tertiary-container": "#564067",
+                        "surface-container-high": "#e8e7f1",
+                        "on-error-container": "#6e0a12",
+                        "outline": "#797a84",
+                        "on-secondary": "#faf8ff",
+                        "primary-dim": "#0049c2",
+                        "surface-container-highest": "#e1e2ed",
+                        "on-primary": "#faf8ff",
+                        "on-surface-variant": "#5d5f68",
+                        "background": "#faf8fe",
+                        "on-error": "#fff7f6",
+                        "on-primary-container": "#000000",
+                        "on-tertiary-fixed": "#422d53",
+                        "on-surface": "#30323b",
+                        "on-primary-fixed-variant": "#f9f7ff",
+                        "on-tertiary": "#fff6fe",
+                        "primary-fixed": "#3e76fe",
+                        "on-secondary-fixed": "#393f51",
+                        "secondary": "#595e72",
+                        "primary-fixed-dim": "#2d68f0",
+                        "on-tertiary-fixed-variant": "#604a71",
+                        "tertiary-fixed-dim": "#d8bceb",
+                        "secondary-dim": "#4d5266",
+                        "tertiary": "#6d567f",
+                        "surface-container-low": "#f4f3fa",
+                        "on-secondary-fixed-variant": "#565b6f",
+                        "on-secondary-container": "#4c5164",
+                        "surface-tint": "#0053dc",
+                        "on-primary-fixed": "#ffffff",
+                        "secondary-container": "#dde1f9",
+                        "tertiary-container": "#e6cafa"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #0053dc 0%, #3e76fe 100%);
+        }
+        .glass-nav {
+            background: rgba(250, 248, 254, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_4px_40px_rgba(0,83,220,0.06)] h-16 px-8 flex justify-between items-center max-w-full mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tight text-primary font-headline">DoctorHub</span>
+<div class="hidden md:flex gap-8 items-center h-16">
+<a class="text-on-surface-variant font-medium font-headline text-sm hover:text-primary transition-colors duration-200" href="#">Moje aktywności</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline text-sm" href="#">Raporty</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end mr-2">
+<span class="font-headline text-sm font-bold text-on-surface">dr n. med. Jan Kowalski</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">Panel Lekarza</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container overflow-hidden ring-2 ring-surface-container">
+<img alt="Avatar of Dr. Jan Kowalski" class="w-full h-full object-cover" data-alt="Professional portrait of a male doctor in a white coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhi06ILxDoh9rVueGc5AX29Z6C5wBprrB9B3DhcAIjSpd68RCjrHf6wRQAlCbgBPm7MK5LAbukfADkHADr0dfFovrgxpa2_bfEXPxIQvAO-nSzzO_8XI5NW6tdoKSagPSku6_s-L88C9459NAczIVqtG1Ky3OmUTbYOWnP4_en12sRxQQ4P_RL9Rr9Eevj4JtB3tFu50KWZFJ09gYoO3dAWc4monn5b64qh_XOmTc4DrBjd6O7qf1TjTkjVHC_YBLD7ukMfoIvjjg"/>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="pt-24 pb-12 px-6 max-w-6xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Settings/Form -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<header class="mb-2">
+<h1 class="text-4xl font-headline font-bold text-on-surface tracking-tight leading-tight">Nowy raport</h1>
+<p class="text-on-surface-variant font-body mt-2 leading-relaxed">Wybierz zakres dat, aby wygenerować raport aktywności medycznej.</p>
+</header>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_40px_rgba(0,83,220,0.06)] flex flex-col gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest pl-1">Data od</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">calendar_today</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 pl-10 pr-4 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="date" value="2023-10-01"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest pl-1">Data do</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">event</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 pl-10 pr-4 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="date" value="2023-10-31"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 pt-4">
+<button class="editorial-gradient text-on-primary font-headline font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg">analytics</span>
+                            Generuj raport
+                        </button>
+<button class="bg-transparent text-on-surface-variant font-headline font-semibold py-3 rounded-xl hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                            Anuluj
+                        </button>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-tertiary-container/30 border border-tertiary-container/20 p-6 rounded-xl flex gap-4">
+<span class="material-symbols-outlined text-tertiary text-2xl">info</span>
+<div>
+<h4 class="font-headline font-bold text-on-tertiary-container text-sm">Informacja o raporcie</h4>
+<p class="text-on-tertiary-container/80 text-xs mt-1 leading-relaxed">Raporty generowane są w formacie PDF i zawierają zestawienie wszystkich wizyt, konsultacji oraz wystawionych recept w wybranym okresie.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Preview/Placeholder (Asymmetric Layout) -->
+<div class="lg:col-span-7">
+<div class="h-full min-h-[500px] bg-surface-container-low rounded-xl border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center p-12 relative overflow-hidden">
+<!-- Decorative background elements to simulate premium UI -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 rounded-3xl bg-surface-container-lowest flex items-center justify-center shadow-xl mb-8">
+<span class="material-symbols-outlined text-5xl text-outline-variant/50" style="font-variation-settings: 'wght' 200;">description</span>
+</div>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-3">Podgląd nie jest dostępny</h3>
+<p class="text-on-surface-variant max-w-sm mb-8">Po wybraniu zakresu dat i kliknięciu przycisku „Generuj raport”, tutaj pojawi się wizualizacja zestawienia Twoich danych.</p>
+<!-- Empty State Stats Skeleton -->
+<div class="grid grid-cols-2 gap-4 w-full max-w-md">
+<div class="bg-surface-container-lowest/50 p-4 rounded-lg border border-outline-variant/10">
+<div class="h-2 w-12 bg-outline-variant/20 rounded mb-3"></div>
+<div class="h-6 w-20 bg-outline-variant/10 rounded"></div>
+</div>
+<div class="bg-surface-container-lowest/50 p-4 rounded-lg border border-outline-variant/10">
+<div class="h-2 w-16 bg-outline-variant/20 rounded mb-3"></div>
+<div class="h-6 w-16 bg-outline-variant/10 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Footer -->
+<footer class="mt-auto py-8 border-t border-outline-variant/10 flex justify-center">
+<div class="flex gap-6 text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest font-label">
+<span>Zgodność RODO</span>
+<span>Wersja Systemu 2.4.0</span>
+<span>Wsparcie Techniczne</span>
+</div>
+</footer>
+</body></html>

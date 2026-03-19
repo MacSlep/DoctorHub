@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DoctorHub - Moje Aktywności</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-primary-fixed": "#ffffff",
+                "tertiary": "#6d567f",
+                "on-secondary-container": "#4c5164",
+                "on-primary": "#faf8ff",
+                "on-secondary-fixed": "#393f51",
+                "on-tertiary-container": "#564067",
+                "surface-container-high": "#e8e7f1",
+                "surface-container-highest": "#e1e2ed",
+                "secondary-container": "#dde1f9",
+                "inverse-primary": "#618bff",
+                "on-tertiary-fixed-variant": "#604a71",
+                "surface": "#faf8fe",
+                "tertiary-container": "#e6cafa",
+                "secondary-fixed-dim": "#cfd3eb",
+                "tertiary-fixed": "#e6cafa",
+                "surface-bright": "#faf8fe",
+                "error-container": "#fa746f",
+                "on-secondary": "#faf8ff",
+                "on-primary-fixed-variant": "#f9f7ff",
+                "surface-container-lowest": "#ffffff",
+                "on-background": "#30323b",
+                "on-error": "#fff7f6",
+                "on-surface-variant": "#5d5f68",
+                "on-surface": "#30323b",
+                "error-dim": "#67040d",
+                "primary-fixed-dim": "#2d68f0",
+                "surface-variant": "#e1e2ed",
+                "inverse-surface": "#0d0e12",
+                "error": "#a83836",
+                "on-primary-container": "#000000",
+                "primary-fixed": "#3e76fe",
+                "surface-dim": "#d9d9e4",
+                "primary": "#0053dc",
+                "on-secondary-fixed-variant": "#565b6f",
+                "primary-container": "#3e76fe",
+                "outline-variant": "#b0b1bc",
+                "secondary-fixed": "#dde1f9",
+                "inverse-on-surface": "#9d9ca2",
+                "on-tertiary-fixed": "#422d53",
+                "outline": "#797a84",
+                "background": "#faf8fe",
+                "surface-container-low": "#f4f3fa",
+                "secondary": "#595e72",
+                "tertiary-dim": "#604a72",
+                "on-tertiary": "#fff6fe",
+                "surface-tint": "#0053dc",
+                "tertiary-fixed-dim": "#d8bceb",
+                "primary-dim": "#0049c2",
+                "on-error-container": "#6e0a12",
+                "surface-container": "#eeedf6",
+                "secondary-dim": "#4d5266"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(27%) sepia(91%) saturate(2352%) hue-rotate(211%) brightness(95%) contrast(105%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-16 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,83,220,0.06)]">
+<div class="flex items-center justify-between px-8 w-full max-w-full mx-auto h-full">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tight text-[#2563EB]" style="">DoctorHub</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#2563EB] font-bold border-b-2 border-[#2563EB] pb-1 text-sm" href="#" style="">Moje aktywności</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm" href="#" style="">Raporty</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/5 rounded-lg transition-all duration-200" style="">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications" style="">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/10">
+<img alt="Doctor Profile Avatar" class="" data-alt="Close up portrait of a professional male doctor in a white coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgG5xadTtK__RyB0rNllzIgZx3SI39y2YW4draJcZsHqlw06GrcREELqZ0eII3zbgzxJ0wE-FOhcASz0CCYQsR1s0ijibmhCTCQbHsm4dY85VkKwDdK_G6Q7BoMo6AYjyZujGeT7dYTlBmXD1Znq1qDLcBFFgo_eI6Sn5TX-I3ZBzdj9wB2C1TYK2-SH8bRXl0DoaH-kY9wWQOnTVQAfSZXMYY7rDuY0JY3CMwDcmRZFhtK26hdWaiEBKDGvHTw4fYThbVGMUmgko" style="">
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-8 max-w-full mx-auto">
+<!-- Filter Bar -->
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-wrap items-center gap-8 mb-8">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest" style="">Data od</span>
+<div class="relative">
+<input class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none min-w-[160px] transition-all" type="date" value="2023-10-12">
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest" style="">Data do</span>
+<div class="relative">
+<input class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none min-w-[160px] transition-all" type="date" value="2023-10-19">
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest" style="">Oddział</span>
+<select class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none min-w-[200px] transition-all appearance-none cursor-pointer">
+<option>Wszystkie oddziały</option>
+<option>Kardiologia</option>
+<option>Neurologia</option>
+<option>Onkologia</option>
+</select>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest" style="">Typ aktywności</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-lg text-xs font-bold border border-primary/20" style="">Wszystko</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-lg text-xs font-bold border border-outline-variant/15 hover:border-primary/40 transition-colors" style="">Wizyty</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-lg text-xs font-bold border border-outline-variant/15 hover:border-primary/40 transition-colors" style="">Zabiegi</button>
+</div>
+</div>
+<div class="ml-auto flex items-center self-end pb-1">
+<button class="bg-[#2563EB] text-white px-6 py-2.5 rounded-lg shadow-sm hover:bg-blue-700 transition-all transform hover:scale-[1.02] flex items-center gap-2 font-bold text-sm tracking-wide" style=""><span class="material-symbols-outlined" style="">add</span>Nowy raport</button></div>
+</div>
+<!-- Activity Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_10px_40px_rgba(0,83,220,0.06)] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low/50">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest" style="">Data</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest" style="">Godzina</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest" style="">Typ aktywności</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest" style="">Opis</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest" style="">Oddział</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">19 Paź 2023</td>
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">08:30</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary uppercase" style="">Konsultacja</span>
+</td>
+<td class="px-6 py-5 text-sm" style="">
+<div class="font-bold text-on-surface" style="">Anna Kowalska</div>
+<div class="text-on-surface-variant text-xs mt-0.5" style="">Kontrola pooperacyjna stentu</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium" style="">Kardiologia</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">19 Paź 2023</td>
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">10:15</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-tertiary-container text-on-tertiary-container uppercase" style="">Hospitalizacja</span>
+</td>
+<td class="px-6 py-5 text-sm" style="">
+<div class="font-bold text-on-surface" style="">Marek Nowak</div>
+<div class="text-on-surface-variant text-xs mt-0.5" style="">Przyjęcie planowe - diagnostyka</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium" style="">Oddział Wewnętrzny</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">18 Paź 2023</td>
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">14:00</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container/20 text-error-dim uppercase" style="">Zabieg</span>
+</td>
+<td class="px-6 py-5 text-sm" style="">
+<div class="font-bold text-on-surface" style="">Jan Zieliński</div>
+<div class="text-on-surface-variant text-xs mt-0.5" style="">Aplikacja kardiowertera</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium" style="">Kardiochirurgia</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">18 Paź 2023</td>
+<td class="px-6 py-5 font-medium text-sm text-on-surface" style="">16:45</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary uppercase" style="">Konsultacja</span>
+</td>
+<td class="px-6 py-5 text-sm" style="">
+<div class="font-bold text-on-surface" style="">Zofia Wiśniewska</div>
+<div class="text-on-surface-variant text-xs mt-0.5" style="">Interpretacja wyników badań krwi</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant font-medium" style="">Kardiologia</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low/20 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium" style="">Pokazano 4 z 128 wyników</span>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container-low rounded text-on-surface-variant" style="">
+<span class="material-symbols-outlined" data-icon="chevron_left" style="">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-xs font-bold" style="">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant text-xs font-bold" style="">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant text-xs font-bold" style="">3</button>
+<button class="p-1 hover:bg-surface-container-low rounded text-on-surface-variant" style="">
+<span class="material-symbols-outlined" data-icon="chevron_right" style="">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

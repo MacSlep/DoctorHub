@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#2d68f0",
+              "on-secondary-fixed": "#393f51",
+              "outline-variant": "#b0b1bc",
+              "outline": "#797a84",
+              "on-secondary": "#faf8ff",
+              "tertiary-fixed-dim": "#d8bceb",
+              "tertiary-fixed": "#e6cafa",
+              "surface-tint": "#0053dc",
+              "on-surface": "#30323b",
+              "primary-fixed": "#3e76fe",
+              "error": "#a83836",
+              "surface-container-low": "#f4f3fa",
+              "on-primary-container": "#000000",
+              "on-tertiary": "#fff6fe",
+              "error-dim": "#67040d",
+              "surface-variant": "#e1e2ed",
+              "on-secondary-container": "#4c5164",
+              "on-primary": "#faf8ff",
+              "on-surface-variant": "#5d5f68",
+              "tertiary-container": "#e6cafa",
+              "surface-container-highest": "#e1e2ed",
+              "secondary": "#595e72",
+              "surface-container-high": "#e8e7f1",
+              "secondary-fixed-dim": "#cfd3eb",
+              "on-primary-fixed": "#ffffff",
+              "error-container": "#fa746f",
+              "primary-container": "#3e76fe",
+              "on-tertiary-fixed": "#422d53",
+              "on-background": "#30323b",
+              "surface": "#faf8fe",
+              "on-primary-fixed-variant": "#f9f7ff",
+              "inverse-on-surface": "#9d9ca2",
+              "primary": "#0053dc",
+              "on-tertiary-container": "#564067",
+              "on-secondary-fixed-variant": "#565b6f",
+              "surface-container": "#eeedf6",
+              "secondary-fixed": "#dde1f9",
+              "tertiary-dim": "#604a72",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#dde1f9",
+              "background": "#faf8fe",
+              "primary-dim": "#0049c2",
+              "inverse-primary": "#618bff",
+              "surface-bright": "#faf8fe",
+              "inverse-surface": "#0d0e12",
+              "on-tertiary-fixed-variant": "#604a71",
+              "secondary-dim": "#4d5266",
+              "on-error-container": "#6e0a12",
+              "tertiary": "#6d567f",
+              "on-error": "#fff7f6",
+              "surface-dim": "#d9d9e4"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full h-16 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,83,220,0.06)]">
+<div class="flex items-center justify-between px-8 w-full max-w-[1440px] mx-auto h-full">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tight text-primary" style="">DoctorHub</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors py-1" href="#" style="">Moje aktywności</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#" style="">Raporty</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-on-surface" style="">Dr Anna Nowak</p>
+</div>
+<img alt="Doctor Profile Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtDoGL8RZtZAnGC4hPacu3S0IHM4C-Qr5h-Ao_9HW6Y7wTgGuCWss894AxJvCyx4_KREvsMu5gSJqKfOg9NbYN-kNUwfsoI5TchQj5LlkUFDKcocPO6ZZ6GuKgfMmiNHJ-69tMTvIECPWBddQKyIPkZu4wyB1iMNtxavNzIyNy8vnAz1jxfwAd8xmwtfF3PhscJCemtf98C3Q8IcUn2CCyTWeld3s-D3Uck80N-EMwCPAq6IxRSpVhldIw3DgqpGa_eLyk5ht-w08" style="">
+</div>
+</div>
+</div>
+</nav>
+<!-- Content Canvas -->
+<main class="pt-24 pb-12 px-8 max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-4 mb-2">
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight" style="">Zarządzanie raportami</h1>
+<span class="px-3 py-1 bg-error-container/20 text-error rounded-lg text-xs font-bold border border-error/10 flex items-center gap-1.5" style="">
+<span class="material-symbols-outlined text-sm" style="">priority_high</span>Raporty wymagające akcji: 5</span>
+</div>
+<p class="text-on-surface-variant" style="">Przeglądaj i zatwierdzaj raporty aktywności lekarzy Twojego oddziału.</p>
+</div>
+</header>
+<!-- Filters Section -->
+<section class="bg-surface-container-low p-6 rounded-xl mb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 items-end">
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider block" style="">Data od</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 px-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" type="date">
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider block" style="">Data do</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 px-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" type="date">
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider block" style="">Lekarz</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 px-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none">
+<option>Wszyscy lekarze</option>
+<option>dr Jan Kowalski</option>
+<option>dr Maria Wiśniewska</option>
+<option>dr Piotr Zieliński</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider block" style="">Oddział</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 px-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none">
+<option>Kardiologia</option>
+<option>Chirurgia</option>
+<option>Neurologia</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Reports Table / List -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_10px_40px_rgba(0,83,220,0.06)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest" style="">Lekarz</th>
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest" style="">Okres rozliczeniowy</th>
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest text-center" style="">Liczba procedur</th>
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest text-right" style="">Wartość</th>
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest" style="">Status</th>
+<th class="px-6 py-5 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest text-right" style="">Akcje</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs" style="">JK</div>
+<div>
+<p class="font-bold text-on-surface text-sm" style="">dr Jan Kowalski</p>
+<p class="text-xs text-on-surface-variant" style="">Specjalista Kardiolog</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface-variant" style="">01.10.2023 - 31.10.2023</td>
+<td class="px-6 py-5 text-sm font-bold text-center" style="">42</td>
+<td class="px-6 py-5 text-sm font-extrabold text-right text-primary" style="">12 450,00 PLN</td>
+<td class="px-6 py-5" style="">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase tracking-wider" style="">Oczekuje</span>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex justify-end gap-1.5">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Pobierz PDF" style="">
+<span class="material-symbols-outlined text-lg" style="">picture_as_pdf</span>
+<span class="" style="">Pobierz PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Szczegóły" style="">
+<span class="material-symbols-outlined text-lg" style="">visibility</span>
+<span class="" style="">Szczegóły</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-green-100 text-green-600 transition-all text-[11px] font-bold" title="Zatwierdź" style="">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="" style="">Zatwierdź</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-error-container/20 text-error transition-all text-[11px] font-bold" title="Odrzuć" style="">
+<span class="material-symbols-outlined text-lg" style="">cancel</span>
+<span class="" style="">Odrzuć</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-fixed flex items-center justify-center font-bold text-xs" style="">MW</div>
+<div>
+<p class="font-bold text-on-surface text-sm" style="">dr Maria Wiśniewska</p>
+<p class="text-xs text-on-surface-variant" style="">Rezydent</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface-variant" style="">01.10.2023 - 31.10.2023</td>
+<td class="px-6 py-5 text-sm font-bold text-center" style="">18</td>
+<td class="px-6 py-5 text-sm font-extrabold text-right text-primary" style="">5 200,00 PLN</td>
+<td class="px-6 py-5" style="">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-[10px] font-bold uppercase tracking-wider" style="">W trakcie weryfikacji</span>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex justify-end gap-1.5">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Pobierz PDF" style="">
+<span class="material-symbols-outlined text-lg" style="">picture_as_pdf</span>
+<span class="" style="">Pobierz PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Szczegóły" style="">
+<span class="material-symbols-outlined text-lg" style="">visibility</span>
+<span class="" style="">Szczegóły</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-green-100 text-green-600 transition-all text-[11px] font-bold" title="Zatwierdź" style="">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="" style="">Zatwierdź</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-error-container/20 text-error transition-all text-[11px] font-bold" title="Odrzuć" style="">
+<span class="material-symbols-outlined text-lg" style="">cancel</span>
+<span class="" style="">Odrzuć</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs" style="">PZ</div>
+<div>
+<p class="font-bold text-on-surface text-sm" style="">dr Piotr Zieliński</p>
+<p class="text-xs text-on-surface-variant" style="">Lekarz Dyżurny</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface-variant" style="">15.09.2023 - 15.10.2023</td>
+<td class="px-6 py-5 text-sm font-bold text-center" style="">112</td>
+<td class="px-6 py-5 text-sm font-extrabold text-right text-primary" style="">31 800,00 PLN</td>
+<td class="px-6 py-5" style="">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase tracking-wider" style="">Oczekuje</span>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex justify-end gap-1.5">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Pobierz PDF" style="">
+<span class="material-symbols-outlined text-lg" style="">picture_as_pdf</span>
+<span class="" style="">Pobierz PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all text-[11px] font-bold" title="Szczegóły" style="">
+<span class="material-symbols-outlined text-lg" style="">visibility</span>
+<span class="" style="">Szczegóły</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-green-100 text-green-600 transition-all text-[11px] font-bold" title="Zatwierdź" style="">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="" style="">Zatwierdź</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-error-container/20 text-error transition-all text-[11px] font-bold" title="Odrzuć" style="">
+<span class="material-symbols-outlined text-lg" style="">cancel</span>
+<span class="" style="">Odrzuć</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Summary -->
+<div class="px-6 py-4 bg-surface-container-low/20 flex items-center justify-between border-t border-surface-container-low">
+<p class="text-xs text-on-surface-variant font-medium" style="">Wyświetlono 3 z 24 raportów</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-primary hover:text-white transition-all text-xs font-bold border border-surface-container-low" style="">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-white transition-all text-xs font-bold" style="">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-white transition-all text-xs font-bold" style="">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-white transition-all" style="">
+<span class="material-symbols-outlined text-sm" style="">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

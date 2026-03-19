@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-soft: rgba(37, 99, 235, 0.12);
+  --secondary-soft: #dde1f9;
+  --surface: #faf8fe;
+  --surface-strong: #ffffff;
+  --surface-soft: #f4f5fb;
+  --surface-hover: #f0f4ff;
+  --border: #e5e7ef;
+  --border-strong: #d8dbe7;
+  --on-surface: #1f2430;
+  --on-primary: #ffffff;
+  --muted: #6b7280;
+  --muted-strong: #4b5563;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--on-surface);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+ h2,
+ h3,
+ h4 {
+  font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+ input,
+ select,
+ textarea,
+ a {
+  font: inherit;
+}
+
+code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+#root {
+  min-height: 100vh;
+}

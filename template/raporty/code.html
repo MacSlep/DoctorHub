@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DoctorHub - Raporty</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#30323b",
+              "secondary-container": "#dde1f9",
+              "error-dim": "#67040d",
+              "surface-tint": "#0053dc",
+              "secondary": "#595e72",
+              "on-primary": "#faf8ff",
+              "surface-bright": "#faf8fe",
+              "secondary-dim": "#4d5266",
+              "error": "#a83836",
+              "primary-fixed-dim": "#2d68f0",
+              "inverse-on-surface": "#9d9ca2",
+              "surface-container": "#eeedf6",
+              "primary-fixed": "#3e76fe",
+              "tertiary-fixed-dim": "#d8bceb",
+              "surface-container-highest": "#e1e2ed",
+              "primary": "#0053dc",
+              "on-secondary-container": "#4c5164",
+              "tertiary-dim": "#604a72",
+              "on-tertiary-fixed-variant": "#604a71",
+              "tertiary-container": "#e6cafa",
+              "secondary-fixed-dim": "#cfd3eb",
+              "surface": "#faf8fe",
+              "secondary-fixed": "#dde1f9",
+              "on-secondary": "#faf8ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#564067",
+              "surface-container-low": "#f4f3fa",
+              "on-surface-variant": "#5d5f68",
+              "tertiary-fixed": "#e6cafa",
+              "outline-variant": "#b0b1bc",
+              "primary-container": "#3e76fe",
+              "on-tertiary": "#fff6fe",
+              "on-background": "#30323b",
+              "on-tertiary-fixed": "#422d53",
+              "on-primary-container": "#000000",
+              "tertiary": "#6d567f",
+              "on-secondary-fixed": "#393f51",
+              "inverse-surface": "#0d0e12",
+              "surface-container-high": "#e8e7f1",
+              "inverse-primary": "#618bff",
+              "error-container": "#fa746f",
+              "on-primary-fixed-variant": "#f9f7ff",
+              "on-primary-fixed": "#ffffff",
+              "background": "#faf8fe",
+              "outline": "#797a84",
+              "on-secondary-fixed-variant": "#565b6f",
+              "surface-dim": "#d9d9e4",
+              "on-error-container": "#6e0a12",
+              "on-error": "#fff7f6",
+              "primary-dim": "#0049c2",
+              "surface-variant": "#e1e2ed"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf8fe; color: #30323b; }
+        h1, h2, h3, .brand-logo { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .glass-nav { background: rgba(250, 248, 254, 0.8); backdrop-filter: blur(20px); }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.6;
+            filter: invert(0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full h-16 z-50 glass-nav shadow-[0_10px_40px_rgba(0,83,220,0.06)]">
+<div class="flex items-center justify-between px-8 w-full max-w-full mx-auto h-full">
+<!-- Brand -->
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tight text-[#2563EB]">DoctorHub</span>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm" href="#">Moje aktywności</a>
+<a class="text-[#2563EB] font-bold border-b-2 border-[#2563EB] pb-1 text-sm" href="#">Raporty</a>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<div class="text-right hidden lg:block">
+<p class="text-[11px] font-bold text-on-surface">dr n. med. Jan Kowalski</p>
+</div>
+<img alt="Doctor Profile Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAacmVnSTb5vXE-GubcRrX3GmRDJVzl_DGMkyuMVitG51B_kAX7G3V9fKCnSvCNR5xqWBAta0dDuO16XOrm3IOe7qk6mdrCrOgIoELurf_RcWc9vzhj8-p0pGjFiLLUueoAP3Ug9GpjbW36PPowQ47azQW2z4YE7dXnBSme4eVgNr9rmLd0Jrw89WRX-IFoxuKT3hoC-UZIeX0egVwyCeZrvdE1KnF-CgO4_V_IZx9Q4ndPyw1a5heiQfFqzWWWBumKAyIUEUFmF-4"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 pb-12 px-8 w-full max-w-full mx-auto">
+<!-- Filter Bar -->
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-wrap items-center justify-between gap-8 mb-8">
+<div class="flex flex-wrap items-center gap-8">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest">Data od</span>
+<div class="relative">
+<input class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none min-w-[180px] transition-all" type="date"/>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest">Data do</span>
+<div class="relative">
+<input class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none min-w-[180px] transition-all" type="date"/>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-1.5 ml-1 tracking-widest">Status</span>
+<select class="bg-surface-container-lowest border border-outline-variant/15 px-3 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none min-w-[200px] transition-all appearance-none cursor-pointer">
+<option>Wszystkie statusy</option>
+<option>Zatwierdzony</option>
+<option>W trakcie weryfikacji</option>
+<option>Wymaga poprawy</option>
+</select>
+</div>
+</div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary-dim transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">add</span>
+    Nowy raport
+  </button>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_10px_40px_rgba(0,83,220,0.06)] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low/50">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Okres Rozliczeniowy</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Data Wysłania</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Liczba Procedur</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest text-right">Wartość</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest text-right">Akcje</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1: Zatwierdzony -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-bold text-sm text-on-surface">Październik 2023</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm font-medium">02.11.2023, 10:45</td>
+<td class="px-6 py-5 text-on-surface text-sm font-medium">142</td>
+<td class="px-6 py-5 text-on-surface font-bold text-right text-sm">8.420,00 PLN</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-tertiary-container text-on-tertiary-container uppercase">
+                            Zatwierdzony
+                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all flex items-center px-3" title="Pobierz PDF"><span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="text-xs font-bold ml-1">Pobierz</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-lg transition-all" title="Szczegóły">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: W trakcie weryfikacji -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-bold text-sm text-on-surface">Listopad 2023</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm font-medium">01.12.2023, 09:15</td>
+<td class="px-6 py-5 text-on-surface text-sm font-medium">98</td>
+<td class="px-6 py-5 text-on-surface font-bold text-right text-sm">6.150,00 PLN</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-secondary-container text-on-secondary-container uppercase">
+                            W trakcie weryfikacji
+                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant/40 cursor-not-allowed flex items-center px-3" disabled="" title="Pobierz PDF"><span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="text-xs font-bold ml-1">Pobierz</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-lg transition-all" title="Szczegóły">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Wymaga poprawy -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-bold text-sm text-on-surface">Wrzesień 2023</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm font-medium">04.10.2023, 14:22</td>
+<td class="px-6 py-5 text-on-surface text-sm font-medium">115</td>
+<td class="px-6 py-5 text-on-surface font-bold text-right text-sm">7.200,00 PLN</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container/20 text-error-dim uppercase">
+                            Wymaga poprawy
+                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-error hover:bg-error/10 rounded-lg transition-all px-3" title="Popraw"><span class="material-symbols-outlined" data-icon="edit">edit</span>
+<span class="text-xs font-bold ml-1">Edytuj</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-lg transition-all" title="Szczegóły">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Wysłany -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-5 font-bold text-sm text-on-surface">Grudzień 2023</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm font-medium">Brak</td>
+<td class="px-6 py-5 text-on-surface text-sm font-medium">45 (roboczy)</td>
+<td class="px-6 py-5 text-on-surface font-bold text-right text-sm">3.100,00 PLN</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-surface-container-high text-on-surface-variant uppercase">
+                            Wysłany
+                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-lg transition-all" title="Opcje">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low/20 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Pokazano 1-4 z 24 raportów</span>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container-low rounded text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant text-xs font-bold">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant text-xs font-bold">3</button>
+<button class="p-1 hover:bg-surface-container-low rounded text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
