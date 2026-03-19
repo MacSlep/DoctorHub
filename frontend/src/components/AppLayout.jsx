@@ -5,7 +5,6 @@ const navLinks = [
   { to: '/moje-aktywnosci', label: 'Moje aktywności' },
   { to: '/raporty', label: 'Raporty' },
   { to: '/raporty/akceptacja', label: 'Akceptacja raportów' },
-  { to: '/raporty/podglad', label: 'Podgląd raportu' },
 ]
 
 function AppLayout() {

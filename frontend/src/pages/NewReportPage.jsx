@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const ACTIVITY_TYPES = ['Konsultacja', 'Hospitalizacja', 'Zabieg', 'Teleporada']
 const DEPARTMENTS = ['Kardiologia', 'Neurologia', 'Onkologia', 'Ortopedia']
@@ -135,6 +136,7 @@ const computeRange = (range, base = new Date()) => {
 }
 
 function NewReportPage() {
+  const navigate = useNavigate()
   const today = new Date()
   const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
 
@@ -201,6 +203,10 @@ function NewReportPage() {
 
   const handleRemove = (id) => {
     setActivities((prev) => prev.filter((item) => item.id !== id))
+  }
+
+  const handleGenerateReport = () => {
+    navigate('/raporty/podglad')
   }
 
   const isRangeActive = (range) => {
@@ -352,7 +358,7 @@ function NewReportPage() {
           </div>
 
           <div className="actions">
-            <button className="btn btn-primary" type="button">
+            <button className="btn btn-primary" type="button" onClick={handleGenerateReport}>
               Generuj raport
             </button>
             <button className="btn btn-ghost" type="button">
