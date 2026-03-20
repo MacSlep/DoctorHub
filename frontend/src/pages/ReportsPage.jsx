@@ -5,28 +5,24 @@ const reports = [
     period: 'Październik 2023',
     sentAt: '02.11.2023, 10:45',
     proceduresCount: 142,
-    value: '8 420,00 PLN',
     status: 'approved',
   },
   {
     period: 'Listopad 2023',
     sentAt: '01.12.2023, 09:15',
     proceduresCount: 98,
-    value: '6 150,00 PLN',
     status: 'review',
   },
   {
     period: 'Wrzesień 2023',
     sentAt: '04.10.2023, 14:22',
     proceduresCount: 115,
-    value: '7 200,00 PLN',
     status: 'needs-fix',
   },
   {
     period: 'Grudzień 2023',
     sentAt: 'Brak',
     proceduresCount: '45 (roboczy)',
-    value: '3 100,00 PLN',
     status: 'sent',
   },
 ]
@@ -42,13 +38,6 @@ function ReportsPage() {
   return (
     <div className="page-stack">
       <header className="page-header">
-        <div>
-          <p className="eyebrow">Raporty</p>
-          <h1 className="page-title">Zestawienia okresowe</h1>
-          <p className="page-subtitle">
-            Przeglądaj wysłane raporty, śledź status oraz pobieraj pliki PDF.
-          </p>
-        </div>
         <div className="actions">
           <Link className="btn btn-primary" to="/raporty/nowy">
             Nowy raport
@@ -59,12 +48,52 @@ function ReportsPage() {
       <section className="card">
         <div className="filters">
           <div className="field">
-            <span className="field__label">Data od</span>
-            <input className="input" type="date" />
+            <span className="field__label">Miesiąc</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>Styczeń</option>
+              <option>Luty</option>
+              <option>Marzec</option>
+              <option>Kwiecień</option>
+              <option>Maj</option>
+              <option>Czerwiec</option>
+              <option>Lipiec</option>
+              <option>Sierpień</option>
+              <option>Wrzesień</option>
+              <option>Październik</option>
+              <option>Listopad</option>
+              <option>Grudzień</option>
+            </select>
           </div>
           <div className="field">
-            <span className="field__label">Data do</span>
-            <input className="input" type="date" />
+            <span className="field__label">Rok</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+          </div>
+          <div className="field">
+            <span className="field__label">Pracownia</span>
+            <select className="input select">
+              <option>Wszystkie pracownie</option>
+              <option>Pracownia TK</option>
+              <option>Pracownia USG</option>
+              <option>Pracownia MRI</option>
+              <option>Pracownia RTG</option>
+            </select>
+          </div>
+          <div className="field">
+            <span className="field__label">Modalność</span>
+            <select className="input select">
+              <option>Wszystkie modalności</option>
+              <option>TK</option>
+              <option>USG</option>
+              <option>MRI</option>
+              <option>RTG</option>
+            </select>
           </div>
           <div className="field">
             <span className="field__label">Status</span>
@@ -85,7 +114,6 @@ function ReportsPage() {
                 <th>Okres rozliczeniowy</th>
                 <th>Data wysłania</th>
                 <th>Liczba procedur</th>
-                <th className="text-right">Wartość</th>
                 <th>Status</th>
                 <th className="text-right">Akcje</th>
               </tr>
@@ -96,7 +124,6 @@ function ReportsPage() {
                   <td className="strong">{report.period}</td>
                   <td>{report.sentAt}</td>
                   <td>{report.proceduresCount}</td>
-                  <td className="text-right strong">{report.value}</td>
                   <td>
                     <span className={`badge status-${report.status}`}>
                       {statusLabel[report.status]}
@@ -104,7 +131,7 @@ function ReportsPage() {
                   </td>
                   <td className="text-right">
                     <div className="table-actions">
-                      <button className="btn btn-ghost">Pobierz</button>
+                      <button className="btn btn-ghost">Pobierz PDF</button>
                       <button className="btn btn-text">Szczegóły</button>
                     </div>
                   </td>
