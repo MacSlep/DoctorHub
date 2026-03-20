@@ -4,49 +4,60 @@ const activities = [
   {
     date: '19 Paź 2023',
     time: '08:30',
-    activityType: 'Konsultacja',
-    description: 'Anna Kowalska — kontrola pooperacyjna stentu',
-    department: 'Kardiologia',
-    status: 'primary',
+    procedure: 'Angio CT wieńcowe',
+    modality: 'TK',
+    status: 'approved',
+    orderingUnit: 'Oddział Kardiologii',
+    patientName: 'Anna Kowalska',
+    pesel: '82041212345',
+    lab: 'Pracownia TK',
   },
   {
     date: '19 Paź 2023',
     time: '10:15',
-    activityType: 'Hospitalizacja',
-    description: 'Marek Nowak — przyjęcie planowe, diagnostyka',
-    department: 'Oddział wewnętrzny',
-    status: 'info',
+    procedure: 'USG Doppler kończyn dolnych',
+    modality: 'USG',
+    status: 'review',
+    orderingUnit: 'Oddział Chorób Wewnętrznych',
+    patientName: 'Marek Nowak',
+    pesel: '90030598765',
+    lab: 'Pracownia USG',
   },
   {
     date: '18 Paź 2023',
     time: '14:00',
-    activityType: 'Zabieg',
-    description: 'Jan Zieliński — aplikacja kardiowertera',
-    department: 'Kardiochirurgia',
-    status: 'danger',
+    procedure: 'MRI serca z kontrastem',
+    modality: 'MRI',
+    status: 'needs-fix',
+    orderingUnit: 'Kardiochirurgia',
+    patientName: 'Jan Zieliński',
+    pesel: '75012245678',
+    lab: 'Pracownia MRI',
   },
   {
     date: '18 Paź 2023',
     time: '16:45',
-    activityType: 'Konsultacja',
-    description: 'Zofia Wiśniewska — interpretacja wyników badań krwi',
-    department: 'Kardiologia',
-    status: 'primary',
+    procedure: 'RTG klatki piersiowej',
+    modality: 'RTG',
+    status: 'pending',
+    orderingUnit: 'Izba Przyjęć',
+    patientName: 'Zofia Wiśniewska',
+    pesel: '68091833456',
+    lab: 'Pracownia RTG',
   },
 ]
+
+const statusLabel = {
+  approved: 'Zatwierdzona',
+  review: 'Weryfikacja',
+  'needs-fix': 'Do poprawy',
+  pending: 'Robocza',
+}
 
 function MyActivitiesPage() {
   return (
     <div className="page-stack">
       <header className="page-header">
-        <div>
-          <p className="eyebrow">Panel lekarza</p>
-          <h1 className="page-title">Moje aktywności</h1>
-          <p className="page-subtitle">
-            Filtruj aktywności według daty, oddziału i typu. Wyniki są widoczne
-            w tabeli poniżej.
-          </p>
-        </div>
         <Link className="btn btn-primary" to="/raporty/nowy">
           Nowy raport
         </Link>
@@ -63,27 +74,34 @@ function MyActivitiesPage() {
             <input className="input" type="date" defaultValue="2023-10-19" />
           </div>
           <div className="field">
-            <span className="field__label">Oddział</span>
+            <span className="field__label">Pracownia</span>
             <select className="input select">
-              <option>Wszystkie oddziały</option>
-              <option>Kardiologia</option>
-              <option>Neurologia</option>
-              <option>Onkologia</option>
+              <option>Wszystkie pracownie</option>
+              <option>Pracownia TK</option>
+              <option>Pracownia USG</option>
+              <option>Pracownia MRI</option>
+              <option>Pracownia RTG</option>
             </select>
           </div>
           <div className="field">
-            <span className="field__label">Typ aktywności</span>
-            <div className="chip-row">
-              <button className="chip active" type="button">
-                Wszystko
-              </button>
-              <button className="chip" type="button">
-                Wizyty
-              </button>
-              <button className="chip" type="button">
-                Zabiegi
-              </button>
-            </div>
+            <span className="field__label">Modalność</span>
+            <select className="input select">
+              <option>Wszystkie modalności</option>
+              <option>TK</option>
+              <option>USG</option>
+              <option>MRI</option>
+              <option>RTG</option>
+            </select>
+          </div>
+          <div className="field">
+            <span className="field__label">Status aktywności</span>
+            <select className="input select">
+              <option>Wszystkie statusy</option>
+              <option>Zatwierdzona</option>
+              <option>Weryfikacja</option>
+              <option>Do poprawy</option>
+              <option>Robocza</option>
+            </select>
           </div>
         </div>
 
@@ -91,30 +109,34 @@ function MyActivitiesPage() {
           <table className="table">
             <thead>
               <tr>
-                <th>Data</th>
+                <th>Data wykonania</th>
                 <th>Godzina</th>
-                <th>Typ aktywności</th>
-                <th>Opis</th>
-                <th>Oddział</th>
+                <th>Nazwa badania / modalność</th>
+                <th>Status aktywności</th>
+                <th>Jednostka zlecająca</th>
+                <th>Imię i nazwisko — pacjent</th>
+                <th>PESEL</th>
+                <th>Pracownia</th>
               </tr>
             </thead>
             <tbody>
               {activities.map((item) => (
-                <tr key={`${item.date}-${item.time}-${item.activityType}`}>
+                <tr key={`${item.date}-${item.time}-${item.patientName}`}>
                   <td>{item.date}</td>
                   <td>{item.time}</td>
                   <td>
-                    <span className={`badge badge-soft status-${item.status}`}>
-                      {item.activityType}
-                    </span>
+                    <div className="strong">{item.procedure}</div>
+                    <div className="muted small">{item.modality}</div>
                   </td>
                   <td>
-                    <div className="strong">{item.description.split(' — ')[0]}</div>
-                    <div className="muted small">
-                      {item.description.split(' — ')[1] ?? ''}
-                    </div>
+                    <span className={`badge status-${item.status}`}>
+                      {statusLabel[item.status] ?? item.status}
+                    </span>
                   </td>
-                  <td className="muted">{item.department}</td>
+                  <td className="muted">{item.orderingUnit}</td>
+                  <td className="strong">{item.patientName}</td>
+                  <td className="muted">{item.pesel}</td>
+                  <td className="muted">{item.lab}</td>
                 </tr>
               ))}
             </tbody>
