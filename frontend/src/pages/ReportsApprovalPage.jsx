@@ -96,11 +96,13 @@ function ReportsApprovalPage() {
             />
           </div>
           <div className="field">
-            <span className="field__label">Oddział</span>
+            <span className="field__label">Pracownia</span>
             <select className="input select">
-              <option>Kardiologia</option>
-              <option>Chirurgia</option>
-              <option>Neurologia</option>
+              <option>Wszystkie pracownie</option>
+              <option>Pracownia TK</option>
+              <option>Pracownia USG</option>
+              <option>Pracownia MRI</option>
+              <option>Pracownia RTG</option>
             </select>
           </div>
           <div className="field">
