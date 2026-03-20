@@ -4,25 +4,22 @@ const rows = [
   {
     doctorName: 'dr Jan Kowalski',
     role: 'Specjalista Kardiolog',
-    period: '01.10.2023 - 31.10.2023',
+    period: 'Wrzesień 2023',
     proceduresCount: 42,
-    value: '12 450,00 PLN',
     status: 'pending',
   },
   {
     doctorName: 'dr Maria Wiśniewska',
     role: 'Rezydent',
-    period: '01.10.2023 - 31.10.2023',
+    period: 'Październik 2023',
     proceduresCount: 18,
-    value: '5 200,00 PLN',
     status: 'review',
   },
   {
     doctorName: 'dr Piotr Zieliński',
     role: 'Lekarz dyżurny',
-    period: '15.09.2023 - 15.10.2023',
+    period: 'Listopad 2023',
     proceduresCount: 112,
-    value: '31 800,00 PLN',
     status: 'pending',
   },
 ]
@@ -49,7 +46,7 @@ function ReportsApprovalPage() {
 
     return rows.filter((row) => {
       const matchesDoctor = needle
-        ? row.doctorName.toLowerCase().includes(needle) || row.role.toLowerCase().includes(needle)
+        ? row.doctorName.toLowerCase().includes(needle)
         : true
       const matchesStatus = statusFilter === 'all' || row.status === statusFilter
       return matchesDoctor && matchesStatus
@@ -58,33 +55,42 @@ function ReportsApprovalPage() {
 
   return (
     <div className="page-stack">
-      <header className="page-header">
-        <div>
-          <p className="eyebrow">Raporty</p>
-          <h1 className="page-title">Akceptacja raportów</h1>
-          <p className="page-subtitle">
-            Przeglądaj i zatwierdzaj raporty aktywności lekarzy w Twoim oddziale.
-          </p>
-        </div>
-        <div className="chip warning">Raporty wymagające akcji: 5</div>
-      </header>
-
       <section className="card">
         <div className="filters">
           <div className="field">
-            <span className="field__label">Data od</span>
-            <input className="input" type="date" />
+            <span className="field__label">Miesiąc</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>Styczeń</option>
+              <option>Luty</option>
+              <option>Marzec</option>
+              <option>Kwiecień</option>
+              <option>Maj</option>
+              <option>Czerwiec</option>
+              <option>Lipiec</option>
+              <option>Sierpień</option>
+              <option>Wrzesień</option>
+              <option>Październik</option>
+              <option>Listopad</option>
+              <option>Grudzień</option>
+            </select>
           </div>
           <div className="field">
-            <span className="field__label">Data do</span>
-            <input className="input" type="date" />
+            <span className="field__label">Rok</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
           </div>
           <div className="field">
             <span className="field__label">Szukaj lekarza</span>
             <input
               className="input"
               type="search"
-              placeholder="Wpisz imię, nazwisko lub rolę"
+              placeholder="Wpisz imię, nazwisko"
               value={searchDoctor}
               onChange={(e) => setSearchDoctor(e.target.value)}
             />
@@ -120,7 +126,6 @@ function ReportsApprovalPage() {
                 <th>Lekarz</th>
                 <th>Okres rozliczeniowy</th>
                 <th className="text-center">Liczba procedur</th>
-                <th className="text-right">Wartość</th>
                 <th>Status</th>
                 <th className="text-right">Akcje</th>
               </tr>
@@ -143,9 +148,8 @@ function ReportsApprovalPage() {
                       </div>
                     </div>
                   </td>
-                  <td>{row.period}</td>
+                  <td className="strong">{row.period}</td>
                   <td className="text-center strong">{row.proceduresCount}</td>
-                  <td className="text-right strong primary">{row.value}</td>
                   <td>
                     <span className={`badge status-${row.status}`}>
                       {statusLabel[row.status]}
@@ -153,10 +157,10 @@ function ReportsApprovalPage() {
                   </td>
                   <td className="text-right">
                     <div className="table-actions">
-                      <button className="btn btn-ghost">PDF</button>
-                      <button className="btn btn-text">Szczegóły</button>
+                      <button className="btn btn-ghost">Pobierz PDF</button>
                       <button className="btn btn-positive">Zatwierdź</button>
                       <button className="btn btn-danger">Odrzuć</button>
+                      <button className="btn btn-text">Szczegóły</button>
                     </div>
                   </td>
                 </tr>
