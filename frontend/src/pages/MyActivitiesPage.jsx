@@ -114,7 +114,7 @@ function MyActivitiesPage() {
                 <th>Nazwa badania / modalność</th>
                 <th>Status aktywności</th>
                 <th>Jednostka zlecająca</th>
-                <th>Imię i nazwisko — pacjent</th>
+                <th>Imię nazwisko pacjenta</th>
                 <th>PESEL</th>
                 <th>Pracownia</th>
               </tr>
