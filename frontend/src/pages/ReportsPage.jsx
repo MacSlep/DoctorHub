@@ -86,16 +86,6 @@ function ReportsPage() {
             </select>
           </div>
           <div className="field">
-            <span className="field__label">Modalność</span>
-            <select className="input select">
-              <option>Wszystkie modalności</option>
-              <option>TK</option>
-              <option>USG</option>
-              <option>MRI</option>
-              <option>RTG</option>
-            </select>
-          </div>
-          <div className="field">
             <span className="field__label">Status</span>
             <select className="input select">
               <option>Wszystkie statusy</option>
