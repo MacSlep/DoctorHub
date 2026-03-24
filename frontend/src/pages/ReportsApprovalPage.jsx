@@ -6,6 +6,7 @@ const rows = [
     role: 'Specjalista Kardiolog',
     period: 'Wrzesień 2023',
     proceduresCount: 42,
+    lab: 'Pracownia TK',
     status: 'pending',
   },
   {
@@ -13,6 +14,7 @@ const rows = [
     role: 'Rezydent',
     period: 'Październik 2023',
     proceduresCount: 18,
+    lab: 'Pracownia USG',
     status: 'review',
   },
   {
@@ -20,6 +22,7 @@ const rows = [
     role: 'Lekarz dyżurny',
     period: 'Listopad 2023',
     proceduresCount: 112,
+    lab: 'Pracownia MRI',
     status: 'pending',
   },
 ]
@@ -128,6 +131,7 @@ function ReportsApprovalPage() {
                 <th>Lekarz</th>
                 <th>Okres rozliczeniowy</th>
                 <th className="text-center">Liczba procedur</th>
+                <th>Pracownia</th>
                 <th>Status</th>
                 <th className="text-right">Akcje</th>
               </tr>
@@ -152,6 +156,7 @@ function ReportsApprovalPage() {
                   </td>
                   <td className="strong">{row.period}</td>
                   <td className="text-center strong">{row.proceduresCount}</td>
+                  <td className="muted">{row.lab}</td>
                   <td>
                     <span className={`badge status-${row.status}`}>
                       {statusLabel[row.status]}
