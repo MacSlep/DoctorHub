@@ -18,8 +18,8 @@ function App() {
         <Route path="/raporty" element={<ReportsPage />} />
         <Route path="/raporty/akceptacja" element={<ReportsApprovalPage />} />
         <Route path="/moje-aktywnosci" element={<MyActivitiesPage />} />
-        <Route path="/raporty/nowy" element={<NewReportPage />} />
-        <Route path="/raporty/podglad" element={<ReportPreviewPage />} />
+        <Route path="/nowy-raport" element={<NewReportPage />} />
+        <Route path="/nowy-raport/podglad" element={<ReportPreviewPage />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/raporty" replace />} />

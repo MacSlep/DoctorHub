@@ -206,7 +206,7 @@ function NewReportPage() {
   }
 
   const handleGenerateReport = () => {
-    navigate('/raporty/podglad')
+    navigate('/nowy-raport/podglad')
   }
 
   const isRangeActive = (range) => {

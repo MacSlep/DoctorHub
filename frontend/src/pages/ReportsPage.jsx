@@ -37,14 +37,6 @@ const statusLabel = {
 function ReportsPage() {
   return (
     <div className="page-stack">
-      <header className="page-header">
-        <div className="actions">
-          <Link className="btn btn-primary" to="/raporty/nowy">
-            Nowy raport
-          </Link>
-        </div>
-      </header>
-
       <section className="card">
         <div className="filters">
           <div className="field">

@@ -57,12 +57,6 @@ const statusLabel = {
 function MyActivitiesPage() {
   return (
     <div className="page-stack">
-      <header className="page-header">
-        <Link className="btn btn-primary" to="/raporty/nowy">
-          Nowy raport
-        </Link>
-      </header>
-
       <section className="card">
         <div className="filters">
           <div className="field">
