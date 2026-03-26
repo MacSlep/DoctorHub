@@ -4,7 +4,7 @@ const rows = [
   {
     doctorName: 'dr Jan Kowalski',
     role: 'Specjalista Kardiolog',
-    period: 'Wrzesień 2023',
+    period: '2023 Wrzesień',
     proceduresCount: 42,
     lab: 'Pracownia TK',
     status: 'pending',
@@ -12,7 +12,7 @@ const rows = [
   {
     doctorName: 'dr Maria Wiśniewska',
     role: 'Rezydent',
-    period: 'Październik 2023',
+    period: '2023 Październik',
     proceduresCount: 18,
     lab: 'Pracownia USG',
     status: 'review',
@@ -20,7 +20,7 @@ const rows = [
   {
     doctorName: 'dr Piotr Zieliński',
     role: 'Lekarz dyżurny',
-    period: 'Listopad 2023',
+    period: '2023 Listopad',
     proceduresCount: 112,
     lab: 'Pracownia MRI',
     status: 'pending',
@@ -61,6 +61,16 @@ function ReportsApprovalPage() {
       <section className="card">
         <div className="filters">
           <div className="field">
+            <span className="field__label">Rok</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+          </div>
+          <div className="field">
             <span className="field__label">Miesiąc</span>
             <select className="input select">
               <option>Wszystkie</option>
@@ -76,16 +86,6 @@ function ReportsApprovalPage() {
               <option>Październik</option>
               <option>Listopad</option>
               <option>Grudzień</option>
-            </select>
-          </div>
-          <div className="field">
-            <span className="field__label">Rok</span>
-            <select className="input select">
-              <option>Wszystkie</option>
-              <option>2026</option>
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
             </select>
           </div>
           <div className="field">
