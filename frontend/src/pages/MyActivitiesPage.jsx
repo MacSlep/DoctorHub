@@ -68,6 +68,34 @@ function MyActivitiesPage() {
             <input className="input" type="date" defaultValue="2023-10-19" />
           </div>
           <div className="field">
+            <span className="field__label">Status aktywności</span>
+            <select className="input select">
+              <option>Wszystkie statusy</option>
+              <option>Zatwierdzona</option>
+              <option>Weryfikacja</option>
+              <option>Do poprawy</option>
+              <option>Robocza</option>
+            </select>
+          </div>
+          <div className="field">
+            <span className="field__label">Jednostka zlecająca</span>
+            <select className="input select">
+              <option>Wszystkie jednostki</option>
+              <option>Oddział Kardiologii</option>
+              <option>Oddział Chorób Wewnętrznych</option>
+              <option>Kardiochirurgia</option>
+              <option>Izba Przyjęć</option>
+            </select>
+          </div>
+          <div className="field">
+            <span className="field__label">Pacjent (wyszukaj)</span>
+            <input
+              className="input"
+              type="search"
+              placeholder="Wpisz imię i nazwisko"
+            />
+          </div>
+          <div className="field">
             <span className="field__label">Pracownia</span>
             <select className="input select">
               <option>Wszystkie pracownie</option>
@@ -85,16 +113,6 @@ function MyActivitiesPage() {
               <option>USG</option>
               <option>MRI</option>
               <option>RTG</option>
-            </select>
-          </div>
-          <div className="field">
-            <span className="field__label">Status aktywności</span>
-            <select className="input select">
-              <option>Wszystkie statusy</option>
-              <option>Zatwierdzona</option>
-              <option>Weryfikacja</option>
-              <option>Do poprawy</option>
-              <option>Robocza</option>
             </select>
           </div>
         </div>
