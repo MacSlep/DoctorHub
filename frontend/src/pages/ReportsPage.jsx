@@ -2,27 +2,31 @@ import { Link } from 'react-router-dom'
 
 const reports = [
   {
-    period: 'Październik 2023',
+    period: '2023 Październik',
     sentAt: '02.11.2023, 10:45',
     proceduresCount: 142,
+    lab: 'Pracownia TK',
     status: 'approved',
   },
   {
-    period: 'Listopad 2023',
+    period: '2023 Listopad',
     sentAt: '01.12.2023, 09:15',
     proceduresCount: 98,
+    lab: 'Pracownia USG',
     status: 'review',
   },
   {
-    period: 'Wrzesień 2023',
+    period: '2023 Wrzesień',
     sentAt: '04.10.2023, 14:22',
     proceduresCount: 115,
+    lab: 'Pracownia MRI',
     status: 'needs-fix',
   },
   {
-    period: 'Grudzień 2023',
+    period: '2023 Grudzień',
     sentAt: 'Brak',
     proceduresCount: '45 (roboczy)',
+    lab: 'Pracownia RTG',
     status: 'sent',
   },
 ]
@@ -40,6 +44,16 @@ function ReportsPage() {
       <section className="card">
         <div className="filters">
           <div className="field">
+            <span className="field__label">Rok</span>
+            <select className="input select">
+              <option>Wszystkie</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+          </div>
+          <div className="field">
             <span className="field__label">Miesiąc</span>
             <select className="input select">
               <option>Wszystkie</option>
@@ -55,16 +69,6 @@ function ReportsPage() {
               <option>Październik</option>
               <option>Listopad</option>
               <option>Grudzień</option>
-            </select>
-          </div>
-          <div className="field">
-            <span className="field__label">Rok</span>
-            <select className="input select">
-              <option>Wszystkie</option>
-              <option>2026</option>
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
             </select>
           </div>
           <div className="field">
@@ -96,6 +100,7 @@ function ReportsPage() {
                 <th>Okres rozliczeniowy</th>
                 <th>Data wysłania</th>
                 <th>Liczba procedur</th>
+                <th>Pracownia</th>
                 <th>Status</th>
                 <th className="text-right">Akcje</th>
               </tr>
@@ -106,6 +111,7 @@ function ReportsPage() {
                   <td className="strong">{report.period}</td>
                   <td>{report.sentAt}</td>
                   <td>{report.proceduresCount}</td>
+                  <td className="muted">{report.lab}</td>
                   <td>
                     <span className={`badge status-${report.status}`}>
                       {statusLabel[report.status]}
