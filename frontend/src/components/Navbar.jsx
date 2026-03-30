@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom'
 
-function Navbar({ brandTitle, brandSubtitle, navLinks, user }) {
+function Navbar({ brandTitle, brandSubtitle, navLinks, onLogout }) {
   return (
     <header className="topbar">
       <div className="brand">
-        <div className="brand__mark">DH</div>
+        <img src="/logo_dh.png" alt="DH" className="brand__mark" />
         <div className="brand__titles">
           <span className="brand__title">{brandTitle}</span>
           <span className="brand__subtitle">{brandSubtitle}</span>
@@ -24,13 +24,9 @@ function Navbar({ brandTitle, brandSubtitle, navLinks, user }) {
       </nav>
 
       <div className="user">
-        <div className="user__meta">
-          <span className="user__name">{user.name}</span>
-          <span className="user__role">{user.role}</span>
-        </div>
-        <div className="avatar" aria-hidden="true">
-          {user.initials}
-        </div>
+        <button type="button" className="logout-button" onClick={onLogout}>
+          Wyloguj
+        </button>
       </div>
     </header>
   )

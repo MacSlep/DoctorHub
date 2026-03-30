@@ -4,7 +4,6 @@ import Navbar from './Navbar.jsx'
 const navLinks = [
   { to: '/moje-aktywnosci', label: 'Moje aktywności' },
   { to: '/raporty', label: 'Raporty' },
-  { to: '/nowy-raport', label: 'Nowy raport' },
   { to: '/raporty/akceptacja', label: 'Akceptacja raportów' },
 ]
 
@@ -14,10 +13,13 @@ function AppLayout() {
   return (
     <div className="app-shell">
       <Navbar
-        brandTitle="DoctorHub"
-        brandSubtitle="Panel lekarza"
+        brandTitle="PANEL LEKARZA"
+        brandSubtitle="Anna Kowalska"
         navLinks={navLinks}
-        user={{ name: 'dr n. med. Jan Kowalski', role: 'Kardiologia', initials: 'JK' }}
+        onLogout={() => {
+          // TODO: zastąp to prawdziwą akcją wylogowania (np. clear token, redirect)
+          console.log('Wylogowano')
+        }}
       />
 
       <main className="page" key={pathname}>
