@@ -16,7 +16,7 @@ function App() {
       <Route element={<AppLayout />}>
         <Route index element={<Navigate to="/raporty" replace />} />
         <Route path="/raporty" element={<ReportsPage />} />
-        <Route path="/raporty/akceptacja" element={<ReportsApprovalPage />} />
+        <Route path="/akceptacja" element={<ReportsApprovalPage />} />
         <Route path="/moje-aktywnosci" element={<MyActivitiesPage />} />
         <Route path="/nowy-raport" element={<NewReportPage />} />
         <Route path="/nowy-raport/podglad" element={<ReportPreviewPage />} />

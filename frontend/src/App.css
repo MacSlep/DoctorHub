@@ -5,34 +5,222 @@
 }
 
 .topbar {
-  position: sticky;
+  position: relative;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0 1.25rem;
+  pointer-events: none;
+}
+
+.topbar__inner {
+  pointer-events: auto;
+  margin: 0 auto;
+  max-width: 1400px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border-strong);
-  backdrop-filter: blur(14px);
-  background: color-mix(in srgb, var(--surface) 92%, rgba(255, 255, 255, 0));
+  gap: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 0 1rem 1rem;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .brand__mark {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: var(--on-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  color: #fff;
   display: grid;
   place-items: center;
   font-weight: 800;
-  letter-spacing: 0.5px;
+}
+
+.brand__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand__title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+}
+
+.brand__subtitle {
+  font-size: 0.625rem;
+  color: #64748b;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  min-height: 42px;
+}
+
+.nav-pill {
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.675rem;
+  color: #64748b;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-pill-active {
+  background: #e0e7ff;
+  color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.18);
+}
+.btn-logout {
+  border: 1px solid transparent;
+  color: #dc2626;
+  background: #fee2e2;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1;
+  border-radius: 0.675rem;
+  padding: 0 1rem;
+  height: 38px;
+  min-width: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.btn-logout:hover {
+  background: #fecaca;
+}
+.nav-pill-active {
+  background: #e0e7ff;
+  color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.18);
+}
+
+.btn-logout {
+  border: 1px solid transparent;
+  color: #dc2626;
+  background: #fee2e2;
+  font-weight: 700;
+  border-radius: 0.675rem;
+  padding: 0 1rem;
+  height: 38px;
+  min-width: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.btn-logout:hover {
+  background: #fecaca;
+}
+
+.nav-pill:hover {
+  color: #1e293b;
+  background: #e5e7eb;
+}
+
+.nav-pill-active {
+  background: #e0e7ff;
+  color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.18);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.1;
+}
+
+.user__name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.9rem;
+}
+
+.user__role {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.btn-logout {
+  border: 1px solid transparent;
+  color: #dc2626;
+  background: #fee2e2;
+  font-weight: 500;
+  border-radius: 0.675rem;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.btn-logout:hover {
+  background: #fecaca;
+}
+
+.btn-logout:active {
+  transform: scale(0.98);
+}
+
+.page {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 96px 18px 40px; /* uwzględnia wysokość paska nawigacji */
+}
+
+.brand__mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.brand__mark img.brand__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.25);
+  display: block;
 }
 
 .brand__titles {
@@ -121,7 +309,7 @@
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 24px 18px 40px;
+  padding: 96px 18px 40px; /* odsunie zawartość poniżej topbaru */
 }
 
 .page-stack {

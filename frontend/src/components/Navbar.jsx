@@ -3,33 +3,37 @@ import { NavLink } from 'react-router-dom'
 function Navbar({ brandTitle, brandSubtitle, navLinks, user }) {
   return (
     <header className="topbar">
-      <div className="brand">
-        <div className="brand__mark">DH</div>
-        <div className="brand__titles">
-          <span className="brand__title">{brandTitle}</span>
-          <span className="brand__subtitle">{brandSubtitle}</span>
+      <div className="topbar__inner">
+        <div className="brand">
+          <div className="brand__mark">
+            <img
+              src="/logo_dh.png"
+              alt="DoctorHub Logo"
+              className="brand__logo"
+            />
+          </div>
+          <div className="brand__titles">
+            <span className="brand__title">{brandTitle}</span>
+            <span className="brand__subtitle">{brandSubtitle}</span>
+          </div>
         </div>
-      </div>
 
-      <nav className="nav">
-        {navLinks.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
-          >
-            {link.label}
-          </NavLink>
-        ))}
-      </nav>
+        <nav className="nav">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) => `nav-pill${isActive ? ' nav-pill-active' : ''}`}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
 
-      <div className="user">
-        <div className="user__meta">
-          <span className="user__name">{user.name}</span>
-          <span className="user__role">{user.role}</span>
-        </div>
-        <div className="avatar" aria-hidden="true">
-          {user.initials}
+        <div className="user-actions">
+          <button className="btn-logout" type="button">
+            Wyloguj
+          </button>
         </div>
       </div>
     </header>
