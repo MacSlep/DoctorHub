@@ -4,7 +4,8 @@ import Navbar from './Navbar.jsx'
 const navLinks = [
   { to: '/moje-aktywnosci', label: 'Moje aktywności' },
   { to: '/raporty', label: 'Raporty' },
-  { to: '/raporty/akceptacja', label: 'Akceptacja raportów' },
+  { to: '/nowy-raport', label: 'Nowy raport' },
+  { to: '/akceptacja', label: 'Akceptacja raportów' },
 ]
 
 function AppLayout() {
