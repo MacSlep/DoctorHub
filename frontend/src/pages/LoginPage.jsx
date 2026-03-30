@@ -11,18 +11,31 @@ function LoginPage() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-card__header">
-          <div className="auth-brand">DoctorHub</div>
-          <p className="eyebrow">Panel medyczny</p>
-          <h1>Witaj ponownie</h1>
+        {/* Branding Section */}
+        <div className="auth-card__branding">
+          <img 
+            alt="DoctorHub Logo" 
+            className="auth-logo" 
+            src="/logo_dh.png" 
+          />
+          <div className="auth-card__brand-text">
+            <span className="auth-brand-main">Doctor</span>
+            <span className="auth-brand-accent">Hub</span>
+          </div>
+        </div>
+
+        {/* Welcome Header */}
+        <header className="auth-card__header">
+          <h1>Witaj!</h1>
           <p className="muted">
             Zaloguj się, aby zarządzać swoimi raportami i aktywnościami.
           </p>
-        </div>
+        </header>
 
+        {/* Login Form */}
         <form className="auth-form" onSubmit={handleSubmit}>
           <label className="field">
-            <span className="field__label">ID medyczne lub e-mail</span>
+            <span className="field__label">ID lub e-mail</span>
             <input
               className="input"
               name="login"
@@ -48,19 +61,17 @@ function LoginPage() {
             </div>
           </label>
 
-          <label className="checkbox">
-            <input type="checkbox" name="remember" />
-            <span>Zapamiętaj to urządzenie</span>
-          </label>
-
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary full">
             Zaloguj się
           </button>
         </form>
 
-        <p className="helper-text">
-          Brak konta? Skontaktuj się z administratorem, aby otrzymać dostęp.
-        </p>
+        {/* Footer */}
+        <footer className="auth-card__footer">
+          <p className="helper-text">
+            Brak konta? Skontaktuj się z administratorem, aby otrzymać dostęp.
+          </p>
+        </footer>
       </div>
     </div>
   )

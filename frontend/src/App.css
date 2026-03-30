@@ -24,14 +24,20 @@
 }
 
 .brand__mark {
-  width: 48px; /* w-12 */
-  height: 48px; /* h-12 */
-  border-radius: 12px; /* rounded-xl */
+  width: 64px; /* dopasowane do wysokości topbaru 72px */
+  height: 64px; /* dopasowane do wysokości topbaru 72px */
+  border-radius: 14px; /* zaokrąglenie kapitalne */
   background: #ffffff;
-  border: 1px solid #e2e8f0; /* border-slate-200 */
+  border: 1px solid #ffffff; /* obramówka w kolorze tła paska nawigacji */
   display: grid;
   place-items: center;
   overflow: hidden; /* Dodane, aby logo nie wychodzilo poza ramki */
+}
+
+.brand__mark img {
+  width: 89%;
+  height: 89%;
+  object-fit: contain;
 }
 
 .brand__titles {
@@ -42,7 +48,7 @@
 
 .brand__title {
   font-weight: 700; /* font-bold */
-  color: #0f172a; /* text-slate-900 */
+  color: #0a0b1f; /* text-slate-900 */
   line-height: 1; /* leading-none */
 }
 
@@ -419,8 +425,8 @@
 
 .btn {
   border-radius: 8px; /* rounded-lg */
-  padding: 6px 12px; /* px-3 py-1.5 */
-  font-size: 12px; /* text-xs */
+  padding: 12px 12px; /* Zwiększony padding */
+  font-size: 14px; /* text-sm */
   font-weight: 600; /* font-semibold */
   cursor: pointer;
   transition: all 0.2s ease;
@@ -543,6 +549,69 @@
   color: var(--muted);
   font-size: 13px;
   margin: 0;
+}
+
+/* Branding section for login page */
+.auth-card__branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.auth-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.auth-card__brand-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.auth-brand-main {
+  color: #0a0b1f;
+}
+
+.auth-brand-accent {
+  color: #0a0b1f;
+}
+
+.auth-card__subtitle {
+  color: #64748b; /* slate-500 */
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.auth-card__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-card__header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e293b; /* slate-800 */
+  margin: 0 0 8px 0;
+}
+
+.auth-card__header .muted {
+  color: #64748b; /* slate-500 */
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.auth-card__footer {
+  text-align: center;
+  margin-top: 24px;
 }
 
 .grid.two-columns {

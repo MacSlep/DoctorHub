@@ -14,7 +14,7 @@ function AppLayout() {
   return (
     <div className="app-shell">
       <Navbar
-        brandTitle="PANEL LEKARZA"
+        brandTitle="DoctorHub"
         brandSubtitle="Anna Kowalska"
         navLinks={navLinks}
         onLogout={() => {
