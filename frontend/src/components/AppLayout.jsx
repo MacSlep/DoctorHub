@@ -15,7 +15,8 @@ function AppLayout() {
     <div className="app-shell">
       <Navbar
         brandTitle="DoctorHub"
-        brandSubtitle="Anna Kowalska"
+        userRole="Lekarz dyżurny"
+        userName="dr n. med. Jan Kowalski"
         navLinks={navLinks}
         onLogout={() => {
           // TODO: zastąp to prawdziwą akcją wylogowania (np. clear token, redirect)

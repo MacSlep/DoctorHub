@@ -19,8 +19,7 @@ function LoginPage() {
             src="/logo_dh.png" 
           />
           <div className="auth-card__brand-text">
-            <span className="auth-brand-main">Doctor</span>
-            <span className="auth-brand-accent">Hub</span>
+            <span className="auth-brand-main">Doctor</span><span className="auth-brand-accent">Hub</span>
           </div>
         </div>
 
