@@ -10,6 +10,7 @@ import oracledb from 'oracledb';
 import {
   OracleActivityRow,
   ActivityResponse,
+  PaginatedActivitiesResponse,
 } from '../types/activity.interface';
 
 @Injectable()
@@ -58,8 +59,20 @@ export class ActivitiesService implements OnModuleInit, OnModuleDestroy {
     }
   }
 
-  async getOracleActivities(uzyId: number): Promise<ActivityResponse[]> {
+  async getOracleActivities(
+    uzyId: number,
+    page: number,
+    pageSize: number,
+  ): Promise<PaginatedActivitiesResponse> {
     let connection: any;
+    const startTime = performance.now();
+    const safePage = Math.max(1, page);
+    const safePageSize = Math.min(100, Math.max(1, pageSize));
+    const offset = (safePage - 1) * safePageSize;
+
+    this.logger.log(
+      `[Oracle Query] Starting query for uzyId=${uzyId}, page=${safePage}, pageSize=${safePageSize}`,
+    );
 
     try {
       // Get connection from pool
@@ -68,6 +81,32 @@ export class ActivitiesService implements OnModuleInit, OnModuleDestroy {
       }
 
       connection = await this.pool.getConnection();
+
+      const countSql = `
+        SELECT COUNT(1) AS TOTAL_COUNT
+        FROM WYK_ELECZ we
+        JOIN PERS_UCZESTN pu ON we.ID_WYK_ELECZ = pu.ID_WYK_ELECZ
+        JOIN LEKARZ l ON pu.UZY = l.KOD_UZ_DBAP
+        JOIN JOS j ON we.IDK_JOS_WYK = j.IDK_JOS
+        JOIN ELEM_LECZ el ON we.ID_ELECZ = el.KOD_ELECZ
+        JOIN POBYT p ON we.ID_POB = p.ID_POB
+        JOIN PACJENT pac ON p.ID_PAC = pac.ID_PAC
+        WHERE
+          we.ID_NADRZ_WYK_ELECZ IS NULL
+          AND pu.ROLA = 'BW'
+          AND pu.UZY = :uzyId
+      `;
+
+      const countResult = await connection.execute(
+        countSql,
+        { uzyId },
+        { outFormat: oracledb.OUT_FORMAT_OBJECT },
+      );
+
+      const countRow = (countResult.rows?.[0] ?? { TOTAL_COUNT: 0 }) as {
+        TOTAL_COUNT: number | string;
+      };
+      const total = Number(countRow.TOTAL_COUNT ?? 0);
 
       const sql = `
         SELECT
@@ -89,25 +128,44 @@ export class ActivitiesService implements OnModuleInit, OnModuleDestroy {
           we.ID_NADRZ_WYK_ELECZ IS NULL
           AND pu.ROLA = 'BW'
           AND pu.UZY = :uzyId
+        ORDER BY we.DT_ZAKONCZ DESC, we.ID_ZLEC DESC
+        OFFSET :offset ROWS FETCH NEXT :pageSize ROWS ONLY
       `;
 
       // Bind variables for security
       const result = await connection.execute(
         sql,
-        { uzyId }, // Bind parameter - safe from SQL injection
+        { uzyId, offset, pageSize: safePageSize },
         { outFormat: oracledb.OUT_FORMAT_OBJECT },
       );
 
       const rows = (result.rows ?? []) as OracleActivityRow[];
+      const duration = performance.now() - startTime;
+
+      this.logger.log(
+        `[Oracle Query] ✅ Completed in ${duration.toFixed(2)}ms - Retrieved ${rows.length} record(s), total=${total} for uzyId=${uzyId}`,
+      );
+
       if (rows.length === 0) {
         this.logger.warn(`No activities found in Oracle for uzyId=${uzyId}.`);
       }
 
-      // Map Oracle rows to ActivityResponse DTOs
-      return rows.map((row) => this.mapToActivityResponse(row));
+      const data = rows.map((row) => this.mapToActivityResponse(row));
+      const totalPages = Math.max(1, Math.ceil(total / safePageSize));
+
+      return {
+        data,
+        page: safePage,
+        pageSize: safePageSize,
+        total,
+        totalPages,
+      };
     } catch (error) {
-      this.logger.warn('Oracle connection is unavailable. Returning HTTP 503.');
-      this.logger.debug(String(error));
+      const duration = performance.now() - startTime;
+      this.logger.error(
+        `[Oracle Query] ❌ Failed in ${duration.toFixed(2)}ms for uzyId=${uzyId}: ${String(error)}`,
+        error instanceof Error ? error.stack : 'No stack trace',
+      );
       throw new ServiceUnavailableException(
         'Oracle connection is unavailable. Verify ORACLE_CONNECTION_STRING and network access from Docker container.',
       );

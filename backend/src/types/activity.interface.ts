@@ -24,3 +24,11 @@ export interface ActivityResponse {
   executingUnitName: string;
   source: 'oracle';
 }
+
+export interface PaginatedActivitiesResponse {
+  data: ActivityResponse[];
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}

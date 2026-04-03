@@ -1,49 +1,47 @@
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { fetchActivities } from '../api/activitiesApi'
 
-const activities = [
+// Mock data structure matching ActivityResponse from backend
+const mockActivities = [
   {
-    date: '19 Paź 2023',
-    time: '08:30',
-    procedure: 'Angio CT wieńcowe',
-    modality: 'TK',
+    id: 'ZL001',
+    examinationDate: new Date('2023-10-19T08:30:00'),
+    examinationName: 'Angio CT wieńcowe',
     status: 'approved',
-    orderingUnit: 'Oddział Kardiologii',
     patientName: 'Anna Kowalska',
-    pesel: '82041212345',
-    lab: 'Pracownia TK',
+    patientPesel: '82041212345',
+    executingUnitName: 'Oddział Kardiologii',
+    source: 'oracle',
   },
   {
-    date: '19 Paź 2023',
-    time: '10:15',
-    procedure: 'USG Doppler kończyn dolnych',
-    modality: 'USG',
+    id: 'ZL002',
+    examinationDate: new Date('2023-10-19T10:15:00'),
+    examinationName: 'USG Doppler kończyn dolnych',
     status: 'review',
-    orderingUnit: 'Oddział Chorób Wewnętrznych',
     patientName: 'Marek Nowak',
-    pesel: '90030598765',
-    lab: 'Pracownia USG',
+    patientPesel: '90030598765',
+    executingUnitName: 'Oddział Chorób Wewnętrznych',
+    source: 'oracle',
   },
   {
-    date: '18 Paź 2023',
-    time: '14:00',
-    procedure: 'MRI serca z kontrastem',
-    modality: 'MRI',
+    id: 'ZL003',
+    examinationDate: new Date('2023-10-18T14:00:00'),
+    examinationName: 'MRI serca z kontrastem',
     status: 'needs-fix',
-    orderingUnit: 'Kardiochirurgia',
     patientName: 'Jan Zieliński',
-    pesel: '75012245678',
-    lab: 'Pracownia MRI',
+    patientPesel: '75012245678',
+    executingUnitName: 'Kardiochirurgia',
+    source: 'oracle',
   },
   {
-    date: '18 Paź 2023',
-    time: '16:45',
-    procedure: 'RTG klatki piersiowej',
-    modality: 'RTG',
+    id: 'ZL004',
+    examinationDate: new Date('2023-10-18T16:45:00'),
+    examinationName: 'RTG klatki piersiowej',
     status: 'pending',
-    orderingUnit: 'Izba Przyjęć',
     patientName: 'Zofia Wiśniewska',
-    pesel: '68091833456',
-    lab: 'Pracownia RTG',
+    patientPesel: '68091833456',
+    executingUnitName: 'Izba Przyjęć',
+    source: 'oracle',
   },
 ]
 
@@ -54,7 +52,51 @@ const statusLabel = {
   pending: 'Robocza',
 }
 
+// Format date and time for display
+const formatDateTime = (date) => {
+  const d = new Date(date)
+  return {
+    date: d.toLocaleDateString('pl-PL'),
+    time: d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }),
+  }
+}
+
 function MyActivitiesPage() {
+  const [activities, setActivities] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [page, setPage] = useState(1)
+  const [pageSize] = useState(10)
+  const [total, setTotal] = useState(mockActivities.length)
+  const [totalPages, setTotalPages] = useState(1)
+
+  useEffect(() => {
+    const loadActivities = async () => {
+      setIsLoading(true)
+      setError(null)
+      try {
+        const uzyId = 10802 // TODO: Get from user context/auth context later
+        const result = await fetchActivities(uzyId, page, pageSize)
+        setActivities(result.data)
+        setTotal(result.total)
+        setTotalPages(result.totalPages)
+      } catch (err) {
+        setError(err.message)
+        console.error('Failed to load activities:', err)
+        // Keep mock data on error for UI testing
+        const fallbackStart = (page - 1) * pageSize
+        const fallbackEnd = fallbackStart + pageSize
+        setActivities(mockActivities.slice(fallbackStart, fallbackEnd))
+        setTotal(mockActivities.length)
+        setTotalPages(Math.max(1, Math.ceil(mockActivities.length / pageSize)))
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadActivities()
+  }, [page, pageSize])
+
   return (
     <div className="page-stack">
       <section className="card">
@@ -78,7 +120,7 @@ function MyActivitiesPage() {
             </select>
           </div>
           <div className="field">
-            <span className="field__label">Jednostka zlecająca</span>
+            <span className="field__label">Jednostka</span>
             <select className="input select">
               <option>Wszystkie jednostki</option>
               <option>Oddział Kardiologii</option>
@@ -95,76 +137,104 @@ function MyActivitiesPage() {
               placeholder="Wpisz imię i nazwisko"
             />
           </div>
-          <div className="field">
-            <span className="field__label">Pracownia</span>
-            <select className="input select">
-              <option>Wszystkie pracownie</option>
-              <option>Pracownia TK</option>
-              <option>Pracownia USG</option>
-              <option>Pracownia MRI</option>
-              <option>Pracownia RTG</option>
-            </select>
-          </div>
-          <div className="field">
-            <span className="field__label">Modalność</span>
-            <select className="input select">
-              <option>Wszystkie modalności</option>
-              <option>TK</option>
-              <option>USG</option>
-              <option>MRI</option>
-              <option>RTG</option>
-            </select>
-          </div>
         </div>
 
-        <div className="table-wrapper">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Data wykonania</th>
-                <th>Godzina</th>
-                <th>Nazwa badania / modalność</th>
-                <th>Status aktywności</th>
-                <th>Jednostka zlecająca</th>
-                <th>Imię nazwisko pacjenta</th>
-                <th>PESEL</th>
-                <th>Pracownia</th>
-              </tr>
-            </thead>
-            <tbody>
-              {activities.map((item) => (
-                <tr key={`${item.date}-${item.time}-${item.patientName}`}>
-                  <td>{item.date}</td>
-                  <td>{item.time}</td>
-                  <td>
-                    <div className="strong">{item.procedure}</div>
-                    <div className="muted small">{item.modality}</div>
-                  </td>
-                  <td>
-                    <span className={`badge status-${item.status}`}>
-                      {statusLabel[item.status] ?? item.status}
-                    </span>
-                  </td>
-                  <td className="muted">{item.orderingUnit}</td>
-                  <td className="strong">{item.patientName}</td>
-                  <td className="muted">{item.pesel}</td>
-                  <td className="muted">{item.lab}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="table-footer">
-          <span>Pokazano 4 z 128 wyników</span>
-          <div className="pagination">
-            <button className="page-btn">&lt;</button>
-            <button className="page-btn active">1</button>
-            <button className="page-btn">2</button>
-            <button className="page-btn">3</button>
-            <button className="page-btn">&gt;</button>
+        {/* Error Alert */}
+        {error && (
+          <div className="alert alert-error" style={{ marginBottom: '1rem' }}>
+            <strong>Błąd:</strong> {error}
+            <br />
+            <small>
+              Wyświetlam dane testowe. Upewnij się, że backend działa na porcie 3002.
+            </small>
           </div>
-        </div>
+        )}
+
+        {/* Loading State */}
+        {isLoading && (
+          <div className="alert alert-info" style={{ marginBottom: '1rem' }}>
+            ⏳ Ładowanie danych z serwera...
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!isLoading && activities.length === 0 && (
+          <div className="alert alert-warning" style={{ marginBottom: '1rem' }}>
+            📭 Brak znalezionych aktywności.
+          </div>
+        )}
+
+        {/* Table */}
+        {activities.length > 0 && (
+          <>
+            <div className="table-wrapper">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Data badania</th>
+                    <th>Godzina</th>
+                    <th>Nazwa badania</th>
+                    <th>Status</th>
+                    <th>Jednostka</th>
+                    <th>Pacjent</th>
+                    <th>PESEL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {activities.map((item) => {
+                    const { date, time } = formatDateTime(item.examinationDate)
+                    return (
+                      <tr key={item.id}>
+                        <td className="strong">{item.id}</td>
+                        <td>{date}</td>
+                        <td>{time}</td>
+                        <td className="strong">{item.examinationName}</td>
+                        <td>
+                          <span className={`badge status-${item.status}`}>
+                            {statusLabel[item.status] ?? item.status}
+                          </span>
+                        </td>
+                        <td className="muted">{item.executingUnitName}</td>
+                        <td className="strong">{item.patientName}</td>
+                        <td className="muted">{item.patientPesel}</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="table-footer">
+              <span>
+                Pokazano {(page - 1) * pageSize + (activities.length > 0 ? 1 : 0)}-
+                {(page - 1) * pageSize + activities.length} z {total} wyników
+              </span>
+              <div className="pagination">
+                <button
+                  className="page-btn"
+                  disabled={page <= 1 || isLoading}
+                  onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+                >
+                  &lt;
+                </button>
+                <button className="page-btn active" disabled>
+                  {page}
+                </button>
+                <button
+                  className="page-btn"
+                  disabled={page >= totalPages || isLoading}
+                  onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
+                >
+                  &gt;
+                </button>
+                <span className="muted small" style={{ marginLeft: '0.5rem' }}>
+                  Strona {page} z {totalPages}
+                </span>
+              </div>
+            </div>
+          </>
+        )}
       </section>
     </div>
   )
